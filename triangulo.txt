@@ -1,0 +1,51 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		//programa 1
+		/*
+		int y = 2;
+		int z = 3;
+		
+		double t = Math.Sqrt(y*y+z*z);
+		double a = Math.Asin(y/t)*(180/Math.PI);	
+		double c = Math.Asin(z/t)*(180/Math.PI);
+		
+		Console.WriteLine("El valor de t es: " + t);
+		Console.WriteLine("El valor de a es: " + a);
+		Console.WriteLine("El valor de c es: " + c);
+		*/
+		//programa 2
+		/*
+		double t = 3.61;
+		double a = 33.69*(Math.PI/180);
+		
+		double y = t*Math.Sin(a);
+		double z = t*Math.Cos(a);
+		double c = (Math.PI-(Math.PI/2)- a)*(180/Math.PI);
+		
+		
+		Console.WriteLine("El valor de y es: " + y);
+		Console.WriteLine("El valor de z es: " + z);
+		Console.WriteLine("El valor de c es: " + c);
+		*/
+		//Programa 3
+		 
+		double c = 56.31*(Math.PI/180);
+		double z = 3;
+		
+		double t = z/Math.Sin(c);
+		double y = t*Math.Cos(c);
+		double a = (Math.PI-(Math.PI/2)-c)*(180/Math.PI);
+		
+		Console.WriteLine("El valor de t es: " + t);
+		Console.WriteLine("El valor de y es: " + y);
+		Console.WriteLine("El valor de a es: " + a);
+		
+		
+		
+		
+	}
+}
