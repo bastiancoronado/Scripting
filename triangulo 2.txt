@@ -1,0 +1,60 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		//programa1
+		/*
+		double b = 19.44*Math.PI/180;;
+		double z = 3;
+		double y = 2;
+		
+		double a = Math.Atan(y/z);
+		double w = z/Math.Cos(a+b);
+		double x = Math.Sqrt((w*w)-(z*z))-y;
+		
+		Console.WriteLine("El valor de a es: "+a);
+		Console.WriteLine("El valor de w es: "+w);
+		Console.WriteLine("El valor de x es: "+x);
+		*/
+		
+		//programa2
+		/*
+		double d = 36.87*Math.PI/180;
+		double b = 19.44*Math.PI/180;
+		double y = 2;
+		
+		double a = Math.PI- d - b - Math.PI/2;
+		double z = y/Math.Tan(a);
+		
+		Console.WriteLine("El valor de z es: "+z);
+		*/
+		
+		//programa3
+		/*
+		double w = 5;
+		double d = 36.87*Math.PI/180;
+		double x = 2;
+		
+		double z = w*Math.Sin(d);
+		double y = Math.Sqrt((w*w)-(z*z))-x;
+		
+		Console.WriteLine("El valor de y es: "+y);
+		*/
+		
+		//programa4
+		/*
+		double w = 5;
+		double t = 3.61;
+		double c = 56.31*Math.PI/180;
+		
+		double y = t*Math.Cos(c);
+		double z = t*Math.Sin(c);
+		double x = Math.Sqrt((w*w)-(z*z))-y;
+		
+		Console.WriteLine("El valor de x es: "+x);
+		*/
+		
+	}
+}

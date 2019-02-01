@@ -1,0 +1,46 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		/*
+	   //programa 1
+		Console.WriteLine("ingrese cantidad de smlmv que recive: ");
+		double smlmv = double.Parse(Console.ReadLine());
+		
+		if (smlmv < 2)
+		{
+			Console.WriteLine("El pago del usuario corresponde a la tarifa A");
+		}
+		else if (2 <= smlmv && smlmv <= 4)
+		{
+			Console.WriteLine("El pago del usuario corresponde a la tarifa B");
+		}
+		else
+		{
+			Console.WriteLine("El pago del usuario corresponde a la tarifa C");
+		}
+		*/
+		
+		//programa 2
+		Console.WriteLine("ingrese cantidad de smlmv que recive: ");
+		double smlmv = double.Parse(Console.ReadLine());
+		
+		if (smlmv < 2)
+		{
+			Console.WriteLine("El pago del usuario corresponde a la tarifa A, con valor de la cuota moderada por 3200");
+		}
+		else if (2 <= smlmv && smlmv <= 4)
+		{
+			Console.WriteLine("El pago del usuario corresponde a la tarifa B, con valor de la cuota moderada por 12700");
+		}
+		else
+		{
+			Console.WriteLine("El pago del usuario corresponde a la tarifa C, con valor de la cuota moderada por 33500");
+		}
+		
+		
+		
+	}
+}
