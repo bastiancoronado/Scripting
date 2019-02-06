@@ -1,0 +1,47 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Numero de votos del partido A");
+		int A = int.Parse(Console.ReadLine());
+		Console.WriteLine("Numero de votos del partido B");
+		int B = int.Parse(Console.ReadLine());
+		Console.WriteLine("Numero de votos en blanco");
+		int Blancos = int.Parse(Console.ReadLine());
+		Console.WriteLine("Numero de votos anulados");
+		int Anulados = int.Parse(Console.ReadLine());
+		Console.WriteLine("Numero total de la poblacion");
+		int N = int.Parse(Console.ReadLine());
+		Console.WriteLine("Porcentaje de la poblacion mayor de edad");
+		double P = (double.Parse(Console.ReadLine()))/100;
+		
+		double TotalVotos = A+B+Blancos+Anulados;
+		double PoblacionTotal = (double)N; 
+		
+		bool a = TotalVotos>N;
+		bool b = Math.Abs(A-B)<(TotalVotos*0.1);
+		bool c = TotalVotos<(PoblacionTotal*0.3);
+		
+		if (a||(b&&c))
+		{
+			Console.WriteLine("Deben repetirse las votaciones");
+		}
+		else
+		{
+			if (A>B)
+			{
+				Console.WriteLine("El ganador es A");
+			}
+			else
+			{
+				Console.WriteLine("El ganador es B");
+			}
+		}
+		
+		
+	
+		
+	}
+}
