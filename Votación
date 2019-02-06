@@ -1,0 +1,40 @@
+using System;
+public class Program 
+{
+public static void Main()
+ {
+
+	int VotosPartido1 = int.Parse(Console.ReadLine());
+	int VotosPartido2 = int.Parse(Console.ReadLine());
+	int VotosEnBlanco = int.Parse(Console.ReadLine());
+	int VotosAnulados = int.Parse(Console.ReadLine());
+	int PoblacionTotal = int.Parse(Console.ReadLine());
+	double PorcentajePoblacionMayorDeEdad = double.Parse(Console.ReadLine());
+	double Abstencion = (PoblacionTotal*(PorcentajePoblacionMayorDeEdad/100))-(VotosPartido1+VotosPartido2+VotosEnBlanco+VotosAnulados);
+	
+	int Abs;
+	
+	Abs = (int)Abstencion;
+		 
+	bool a = VotosAnulados<(VotosPartido1+VotosPartido2)*0.3;
+	bool b = VotosEnBlanco<(VotosPartido1+VotosPartido2);
+	bool c = Abstencion<(VotosPartido1+VotosPartido2+VotosEnBlanco+VotosAnulados);
+	
+	if((a||b)&&c)
+	    {
+		Console.WriteLine("Las elecciones fueron existosas");
+		if (VotosPartido1>VotosPartido2)
+			{
+				Console.WriteLine("Ganador partido A");
+			}
+			else
+			{
+			Console.WriteLine("Ganador partido B");
+			}
+		}
+	    else
+	    {
+		Console.WriteLine("DEBEN REPETIRSE LAS ELECCIONES");
+		}
+ }
+}
