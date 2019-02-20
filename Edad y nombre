@@ -12,7 +12,7 @@ public class Program
 		
 		while (respuesta == "s")
 		{
-			
+		
 			Console.WriteLine("ingrese nombre");
 			string nombre = Console.ReadLine();
 			
