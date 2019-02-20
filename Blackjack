@@ -48,10 +48,6 @@ public class Program
 			}
 			
 		}
-		
-		Console.WriteLine("FINAL: "+Total);
-		
-		
-		
+		Console.WriteLine("FINAL: "+Total);	
 	}
 }
