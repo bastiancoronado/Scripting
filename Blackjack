@@ -1,0 +1,53 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Random aleatorio = new Random();
+		int carta1 = 0, carta2 =0, Total =0;
+		string respuesta = "s";
+		
+		carta1 = aleatorio.Next(1,11);  
+		carta2 = aleatorio.Next(1,11);
+		Total = carta1 + carta2;
+		
+		Console.WriteLine("Carta1 es: " +carta1 + " y carta2 es: " +carta2);
+		Console.WriteLine("Total de: " +Total);
+		
+		Console.Write("Desea otra carta? (s/n)");
+	    respuesta = Console.ReadLine();
+		
+		while (respuesta == "s" && Total<22)
+		{
+			int carta3 = aleatorio.Next(1,11);
+			Total+=carta3; 
+			
+			if (Total==21)
+			{
+				Console.WriteLine("Carta3: " + carta3);
+				Console.WriteLine("BlackJack, felicidades ganaste");
+				respuesta="n";
+			}
+			
+			if (Total>21)
+			{
+				int dif = Total - 21;
+				Console.WriteLine("Pierdes! te has pasado por: " + dif);
+			}
+			else if (Total<21)
+			{
+				Console.WriteLine("Carta3: " + carta3);
+				Console.WriteLine("Nuevo total de: " +Total);
+				Console.Write("Desea otra carta? (s/n)");
+	            respuesta = Console.ReadLine();
+			}
+			
+		}
+		
+		Console.WriteLine("FINAL: "+Total);
+		
+		
+		
+	}
+}
