@@ -1,0 +1,56 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) {
+    Random aleatorio = new Random();
+            int dado1 = 0, dado2 = 0, contador= 0, dob=0;
+            int total = dado1 +dado2;
+            double porcentaje=0;
+            string Continuar = "s";
+            
+
+            while(Continuar=="s"&&(dado1+dado2!=2))
+
+            {
+                dado1 = aleatorio.Next(1,7);
+                dado2 = aleatorio.Next(1,7);
+                total += dado1 + dado2;
+                contador++;
+                Console.WriteLine("Turno" + contador);
+                if(dado1==dado2) dob++; else dob=0;
+                if (dado1==1 && dado2==1)
+                {
+                  Console.WriteLine();
+                  total = 0;
+                  Console.WriteLine("PIERDES: tienes "+dado1+" y "+dado2+" en cada dado");
+                  Continuar = "n";
+                }
+                else
+                {
+                  Console.WriteLine("Dado1: " + dado1+ " | Dado2: " + dado2 + " y total: " +total);
+                  Console.WriteLine("dados iguales"+dob);
+                  if((dado1+dado2)>6) porcentaje++;
+                  
+                  if(dob==3)
+                  {
+                  Console.WriteLine("Suertudo! ganaste con 3 tiros pefectos");
+                  Continuar = "n";
+                  }
+                  else if(total>=100)
+                  {
+                  Console.WriteLine();
+                  Console.WriteLine("Felicidades! ganaste");
+                  Continuar = "n";
+                  }
+                  else
+                  {
+                  Console.Write("Desea continuar?");
+                  Continuar = Console.ReadLine();
+                  Console.WriteLine();
+                  }
+                }
+            }
+            Console.WriteLine("Porcentaje de turnos mayores a 6: "+(contador*(porcentaje/100))+"%, Puntaje final: " + total);
+            Console.ReadKey();
+  }
+}
