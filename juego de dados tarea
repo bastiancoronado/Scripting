@@ -1,0 +1,47 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) {
+    Random aleatorio = new Random();
+    int dado=0,total=0,contador=0,anterior=0;
+    string continuar ="s";
+    while (continuar=="s")
+    {
+     dado=aleatorio.Next(1,13);
+     contador++;
+     total+=dado;
+     Console.WriteLine("Turno" + contador);
+     Console.WriteLine("Dado: "+dado+" | total: "+total);
+     
+     if((dado%2)!=0&&contador>3)
+     {
+      Console.WriteLine();
+      Console.WriteLine("Pierdes!sacaste un numero impar");
+      continuar="n";
+     }
+     else
+     {
+       if(total>=100)
+      {
+       Console.WriteLine("Ganaste");
+      }
+       else
+      {
+        if(dado==12&&anterior==10)
+        {
+        Console.WriteLine("Suertudo!!! ganaste ");
+        continuar="n";
+        }
+        else
+        {
+        Console.Write("Quiere continuar?: ");
+        continuar=Console.ReadLine();
+        Console.WriteLine();
+        }
+      }
+     }
+     anterior=dado;
+    }
+    Console.WriteLine("Resultado final: "+total);
+  }
+}
