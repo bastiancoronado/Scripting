@@ -19,17 +19,19 @@ class MainClass {
       Console.WriteLine("Pierdes!sacaste un numero impar");
       continuar="n";
      }
-     else
-     {
+     else{
        if(total>=100)
       {
-       Console.WriteLine("Ganaste");
+        Console.WriteLine();
+        Console.WriteLine("Ganaste!!! Llegaste a la meta");
+        continuar="n";
       }
        else
       {
         if(dado==12&&anterior==10)
         {
-        Console.WriteLine("Suertudo!!! ganaste ");
+        Console.WriteLine();
+        Console.WriteLine("Suertudo!!! Has sacado un 12 despues de un 10 ");
         continuar="n";
         }
         else
@@ -42,6 +44,5 @@ class MainClass {
      }
      anterior=dado;
     }
-    Console.WriteLine("Resultado final: "+total);
   }
 }
