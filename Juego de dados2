@@ -1,0 +1,48 @@
+Random aleatorio = new Random();
+            int dado = 0, vidas =3, total=0, cont1s =0;
+            bool seis = false;
+
+            while (true)
+            {
+                dado = aleatorio.Next(1, 7);
+                total += dado;
+
+                if (dado == 6 && seis == true)
+                {
+                    if (vidas < 3)
+                    {
+                        vidas++;
+                        Console.Write("(+1 vida)");
+                        seis = false;
+                    }
+                    else
+                    {
+                        Console.Write("(limite de vidas)");
+                    }
+                }
+                if (dado == 6) seis = true; else seis = false;
+                if (dado == 1)
+                {
+                    cont1s++;
+                    if (cont1s == 2)
+                    {
+                        vidas--;
+                        cont1s = 0;
+                        Console.WriteLine("(-1 vida)");
+                    }
+
+                }
+                Console.Write("dado: "+dado+", total: "+total+" y "+vidas+"vida(s)" );
+             
+                if (vidas == 0)
+                {
+                    Console.WriteLine(" FIN DEL JUEGO");
+                    break;
+                }
+                else
+                {
+                    Console.Write("continuar?");
+                    if (Console.ReadLine() != "s") break;
+                }
+                Console.WriteLine();
+            }
