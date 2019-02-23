@@ -1,0 +1,47 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) {
+    Random aleatorio = new Random();
+            int dado = 0, vidas =10, total=0,contador=1;
+
+            while (true)
+            {
+              dado = aleatorio.Next(5, 7);
+              total += dado;
+              if (contador%2==0)
+                {
+                  vidas--;
+                  Console.WriteLine("-1 vida");
+                }
+              if(contador%3==0)
+              {
+                int dado2=aleatorio.Next(5,7);
+                total+=dado2;      
+                if(dado==dado2)
+                {
+                  vidas++;
+                  Console.WriteLine("+1 vida");
+                }
+                Console.WriteLine("dado1:"+dado+", dado2:"+dado2+", total:"+total+" y "+vidas+"vida(s)" );
+              }
+              else
+              {
+                Console.WriteLine("dado:"+dado+", total:"+total+" y "+vidas+"vida(s)" );
+              }
+              
+                if (vidas == 0)
+                {
+                    Console.WriteLine(" FIN DEL JUEGO");
+                    break;
+                }
+                else
+                {
+                    Console.Write("continuar?");
+                    if (Console.ReadLine() != "s") break;
+                }
+                contador++;
+                Console.WriteLine();
+            }
+  }
+}
