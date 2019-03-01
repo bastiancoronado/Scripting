@@ -9,7 +9,7 @@ class MainClass {
     Console.Write("Cunados jugadores?: ");
     int jugadores = int.Parse(Console.ReadLine());
 
-            while (true)
+            while (true)//ciclo del juego
             {
               contador++;
               Console.WriteLine("Turno: "+contador);
@@ -18,12 +18,12 @@ class MainClass {
                 dado = aleatorio.Next(1,7);
                 total+=dado;
                 Console.WriteLine("dado: " +dado+"| total: "+total);
-                if (d2==true&&dado==1)
+                if (d2==true&&dado==1)//tercer uno consecutivo y pierde
                 {
                   Console.WriteLine("Pierdes miserablemente");
                   break;
                 }
-                if (dado == 1 && d1 == true)
+                if (dado == 1 && d1 == true)//segundo uno consecutivo
                 {
                   d2=true;
                 }
@@ -31,8 +31,8 @@ class MainClass {
                 {
                   d2=false;
                 }
-                if (dado == 1) d1 = true; else d1 = false;
-                if (total>=100){Console.WriteLine("Ganaste!"); break;}
+                if (dado == 1) d1 = true; else d1 = false;//primer uno consecutivo
+                if (total>=100){Console.WriteLine("Ganaste!"); break;}//ganar o continuar
                 else
                 {
                   Console.Write("Continuar?(s/n)"); 
