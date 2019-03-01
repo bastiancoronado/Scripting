@@ -1,0 +1,60 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) {
+
+    Random aleatorio=new Random();
+    int dado = 0, total=0,contador=0,game=0;
+    bool d1 = false, d2 = false ;
+    string s="s";
+
+    Console.Write("Elija entre 2 y 5 jugadores: ");
+    int jugadores = int.Parse(Console.ReadLine());
+    while(jugadores<2||jugadores>5)//validacion de jugadores
+    {
+      Console.WriteLine();
+      Console.WriteLine("Invalido el numero de jugadores(2 a 5)");
+      jugadores = int.Parse(Console.ReadLine());
+      if (jugadores>=2&&jugadores<=5)break;
+    }
+    while(true)//ciclo del juego
+    {
+      if(game==jugadores){Console.WriteLine("Fin del juego");break;}//final
+      game++;
+      Console.WriteLine();
+      Console.WriteLine("jugador"+game);
+
+            while (true)//ciclo del jugador
+            {
+            contador++;
+            Console.WriteLine("Turno: "+contador);
+            dado = aleatorio.Next(1,7);
+            total+=dado;
+            Console.WriteLine("dado: " +dado+"| total: "+total);
+              if (d2==true&&dado==1)//tercer 1 consecutovo y pierde
+                {
+                  Console.WriteLine("Pierdes miserablemente");
+                  break;
+                }
+              if (dado == 1 && d1 == true){d2=true;}//segundo 1 consecutivo
+              else{d2=false;}
+
+              if (dado == 1) d1 = true; else d1 = false;//primer 1 consecutivo
+
+              if (total>=100){Console.WriteLine("Ganaste!"); break;}//ganar o continuar
+              else
+                {
+                  Console.Write("Continuar?(s/n)"); 
+                  s = Console.ReadLine();
+                  while(s!="s"&&s!="n")//validacion de continuar
+                  {
+                    Console.Write("Entrada invalida (s/n)");
+                    s=Console.ReadLine();
+                  }
+                  if(s=="n"){Console.WriteLine("Te retiras");break;}
+                }
+            }
+      total=0;contador=0;d1=false;d2=false;//reinicio de los contadores
+    }
+  }
+}
