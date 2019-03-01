@@ -1,0 +1,34 @@
+double[] cordx = { 0, 2, 3, 7 };
+            double[] cordy = { 0, 1, 5, 6 };
+            double[] m = new double[3];
+            double[] b = new double[3];
+            double mayor = 0, operacion=0;
+            for (int i =0;i<3;i++)
+            {
+                m[i] = (cordy[i + 1] - cordy[i])/ (cordx[i + 1] - cordx[i]);
+                Console.WriteLine("pendiente= "+m[i]);
+            }
+            for (int j = 0; j < 3; j++)
+            {
+                b[j] = cordy[j+1]-m[j]*cordx[j+1];
+                Console.WriteLine("b= " + b[j]);
+            }
+
+            if(m[0]== m[1]&&m[0]==m[2]&& b[0]== b[1]&& b[0]==b[2])
+            {
+                Console.WriteLine("Los puntos estan sobre la misma recta");
+            }
+            else
+            {
+                Console.WriteLine("Los puntos estan NO! sobre la misma recta");
+            }
+            for (int k = 0; k < 3; k++)
+            {
+                operacion = Math.Sqrt(Math.Pow((cordx[k + 1] - cordx[k]), 2) + Math.Pow((cordy[k + 1] - cordy[k]), 2));
+                Console.WriteLine(operacion);
+                if (operacion>mayor)
+                {
+                    mayor = operacion;
+                }
+            }
+            Console.WriteLine("La mayor distancia es "+mayor);
