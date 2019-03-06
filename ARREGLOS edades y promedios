@@ -6,7 +6,6 @@
             double[] dif = new double[num];
             string[] nom = new string[num];
 
-
             for(int i=0; edad.Length>i;i++)
             {
                 Console.WriteLine("Ingrese el nombre del espacio " +(i+1));
@@ -16,20 +15,18 @@
                 total += edad[i];
                 if (edad[i] > mayor) {mayor=edad[i]; M = nom[i]; }//mayor
                 if (edad[i] < menor) {menor=edad[i]; Me = nom[i]; }//menor
-                if (i==(edad.Length-1)) promedio = total / edad.Length;//calcular el promedio solo una vez
-                
             }
-            for(int i= 0; edad.Length > i; i++)
-            {
-                dif[i] = Math.Abs(promedio - edad[i]);
+            promedio = total / edad.Length; //promedio
+            for(int i= 0; dif.Length > i; i++)dif[i] = Math.Abs(promedio - edad[i]);//arrego de distancias o diferencias
+            for(int i= 0; dif.Length > i; i++)
+            {               
                 suma += Math.Pow(promedio-edad[i], 2);
-                if (dif[i] > menor) cerca = nom[i];//edad mas cerca al promedio
+                int eddif=100;
+                if (dif[i] <= eddif){eddif=(int)dif[i]; cerca = nom[i];}//edad mas cerca al promedio
             }
             double desviacion = Math.Sqrt((suma/edad.Length));
-
             Console.WriteLine("El nombre del mayor es "+M+" de "+mayor);
             Console.WriteLine("El nombre del menor es " + Me + " de " + menor);
             Console.WriteLine("Promedio = " + promedio);
             Console.WriteLine("Desviacion = " + desviacion);
-            Console.WriteLine("La persona ma cerca al promedio es "+cerca);
-            Console.ReadKey();
+            Console.WriteLine("La persona mas cerca al promedio es "+cerca);
