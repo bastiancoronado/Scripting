@@ -1,0 +1,66 @@
+            Random ram = new Random();
+            int carta1 = 0, win = -1, cont = 21;
+            string respuesta = "s";
+            Console.WriteLine("Elija cuantos jugadores");
+            int jugadores = int.Parse(Console.ReadLine());
+            while (jugadores < 2)
+            {
+                Console.WriteLine("Numero invalido (mayor a un jugador)");
+                jugadores = int.Parse(Console.ReadLine());
+                if (jugadores >= 1) break;
+            }
+            string[] nombres = new string[jugadores];
+            for(int i=0;nombres.Length>i;i++)
+            {
+                Console.WriteLine("Elija el nombre del jugador " + (i + 1));
+                nombres[i] = Console.ReadLine();
+            }
+            int[] juegos = new int[jugadores];//totales x jugador
+            int[] dif = new int[jugadores];//diferencias a 21 x jugador
+            for (int i = 0; juegos.Length > i; i++)//juego x jugadores
+            {
+                int total = 0;
+                Console.WriteLine(); Console.WriteLine("Jugador " + (i + 1));
+                carta1 = ram.Next(1, 11); total += carta1;
+                Console.WriteLine("carta1= " + carta1);
+                do//jugo
+                {
+                    carta1 = ram.Next(1, 11); total += carta1;
+                    Console.Write("+Carta " + carta1 + "| Total= " + total);
+                    if (total == 21) { Console.WriteLine(" BLACKJACK!!"); break; }//gana
+                    if (total > 21) { total = -1; Console.WriteLine(" ¡¡Pierdes(:c)!!"); break; }//pierde
+                    Console.Write(" Continuar?");
+                    respuesta = Console.ReadLine();
+                    while (respuesta != "s" && respuesta != "n")//validacion de respuesta
+                    {
+                        Console.WriteLine("Respuesta invalida(s/n)");
+                        respuesta = Console.ReadLine();
+                        if (respuesta == "s" || respuesta == "n") break;
+                    }
+                    if (respuesta == "n") break; Console.WriteLine();//no continuar
+                } while (true);
+                juegos[i] = total; ;//total/diferencia
+            }
+            for (int j = 0; j < nombres.Length; j++)
+            {
+                for (int i = 0; i < nombres.Length - 1; i++)//organiza nombres y puntajes
+                {
+                    if (juegos[i] < juegos[i + 1])
+                    {
+                        int cambio = juegos[i];
+                        juegos[i] = juegos[i + 1];
+                        juegos[i + 1] = cambio;
+                        string cambionomb = nombres[i];
+                        nombres[i] = nombres[i + 1];
+                        nombres[i + 1] = cambionomb;
+                    }
+                }
+                dif[j] = (21 - juegos[j]);
+            }
+            for (int i = 0; i < juegos.Length; i++)
+            {
+                Console.WriteLine("Lugar" + (i+1) + " es " + nombres[i] + " con puntaje de " + juegos[i]);
+            }
+            for (int i = 0; dif.Length > i; i++) { if (cont >= dif[i]) { cont = dif[i]; win = i; } }//calcular menor diferncia
+            Console.WriteLine("gana el jugador "+nombres[0]+juegos[0]);
+            Console.WriteLine("FIN");
