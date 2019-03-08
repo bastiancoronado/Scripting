@@ -1,12 +1,12 @@
             Console.WriteLine("Ingresar numero de datos (personas) para el programa");
-            int num = int.Parse(Console.ReadLine()), mayor = 0, menor = 100, total = 0;
+            int num = int.Parse(Console.ReadLine()), mayor = 0, menor = 100, total = 0, eddif=100;
             double promedio =0, suma=0;
             string M = "na",Me="na", cerca="na";
             int[] edad= new int[num];
             double[] dif = new double[num];
             string[] nom = new string[num];
 
-            for(int i=0; edad.Length>i;i++)
+            for(int i=0; edad.Length>i;i++)//ingresar nombre y edad
             {
                 Console.WriteLine("Ingrese el nombre del espacio " +(i+1));
                 nom[i]= Console.ReadLine();
@@ -21,7 +21,6 @@
             for(int i= 0; dif.Length > i; i++)
             {               
                 suma += Math.Pow(promedio-edad[i], 2);
-                int eddif=100;
                 if (dif[i] <= eddif){eddif=(int)dif[i]; cerca = nom[i];}//edad mas cerca al promedio
             }
             double desviacion = Math.Sqrt((suma/edad.Length));
