@@ -1,0 +1,64 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) {
+		Random aleatorio = new Random();
+		int carta1 = 0, carta2 =0, Total =0, win= -1, cerca =21;
+		string respuesta = "s";
+
+    Console.Write("Elija entre 2 y 5 jugadores: ");
+    int jugadores = int.Parse(Console.ReadLine());
+    while(jugadores<2||jugadores>5)//validacion de jugadores
+    {
+      Console.WriteLine();
+      Console.WriteLine("Invalido el numero de jugadores(2 a 5)");
+      jugadores = int.Parse(Console.ReadLine());
+      if (jugadores>=2&&jugadores<=5)break;
+    }
+    int[] play =new int[jugadores];//arreglo de resultados
+    int[] dif=new int[play.Length];//arreglo de difeferencias a 21
+
+  for(int i=0;play.Length>i;i++)//juego por cada jugador
+  {
+    Console.WriteLine();
+    Console.WriteLine("Jugador: "+(i+1));
+    int Contador =0;
+		carta1 = aleatorio.Next(1,11);  
+		carta2 = aleatorio.Next(1,11);
+		Total = carta1 + carta2;
+		Contador++;
+    Console.WriteLine("-Turno"+Contador); 
+		Console.WriteLine("Carta1 es: " +carta1 + " y carta2 es: " +carta2);
+		Console.WriteLine("Total de: " +Total);
+		Console.Write("Desea otra carta? (s/n)");
+    respuesta = Console.ReadLine();
+		while (respuesta == "s")//juego
+		{
+      Contador++;
+			Total+= (carta1=aleatorio.Next(1,11))+(carta2=aleatorio.Next(1,11)); 
+			Console.WriteLine("-Turno"+Contador);
+      Console.WriteLine("Nueva carta: " + carta1);
+      
+			if (Total==21){Console.WriteLine("BlackJack");break;}//=21
+			if (Total>21){Console.WriteLine("Pierdes! "+Total);Total=-1;break;}//>21
+      else if (Total<21)//<21 y ?
+			{
+				Console.WriteLine("Total : " +Total);
+				Console.Write("Desea otra carta? (s/n)");
+				respuesta = Console.ReadLine();
+			}
+		}
+		play[i]=Total;//almacenamiento de resultados x jugador
+    dif[i] = Math.Abs(21-play[i]);//almacenamientos de dif a 21 x jugador
+  }
+    for(int i=0; play.Length>i;i++)//calcula la menor diferencia a 21
+    {
+      if (dif[i]<cerca)
+      {cerca=dif[i]; win=i+1;}
+    }
+    if (win==-1)
+    {Console.WriteLine("Gana la casa");}
+    else
+    {Console.WriteLine("Gana el jugador "+win);}
+  }
+}
