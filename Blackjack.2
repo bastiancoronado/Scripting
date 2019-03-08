@@ -1,11 +1,11 @@
     Random ram =new Random();
     int carta1=0,win=-1,cont=21;
     string respuesta = "s";
-    Console.WriteLine("Elija numero de jugadores");
+    Console.WriteLine("Elija de 2 a 5 jugadores");
     int jugadores=int.Parse(Console.ReadLine());
     while(jugadores>5||jugadores<2)
     {
-      Console.WriteLine("Numero de jugadores invalido (2-5)");
+      Console.WriteLine("Numero invalido (2 a 5)");
       jugadores=int.Parse(Console.ReadLine());
       if(jugadores>=2&&jugadores<=5)break;
     }
@@ -21,24 +21,21 @@
     {
       carta1=ram.Next(1,11);total+=carta1;
       Console.Write("+Carta "+carta1+"| Total= "+total);
-      if(total==21){Console.WriteLine(" BLACKJACK!!");break;}
-      if(total>21){total=-1;Console.WriteLine(" ¡¡Pierdes(:c)!!");break;}
+      if(total==21){Console.WriteLine(" BLACKJACK!!");break;}//gana
+      if(total>21){total=-1;Console.WriteLine(" ¡¡Pierdes(:c)!!");break;}//pierde
       Console.Write(" Continuar?");
       respuesta=Console.ReadLine();
-      while(respuesta!="s"&&respuesta!="n")
+      while(respuesta!="s"&&respuesta!="n")//validacion de respuesta
       {
         Console.WriteLine("Respuesta invalida(s/n)");
         respuesta=Console.ReadLine();
         if(respuesta=="s"||respuesta=="n")break;
       }
-      if(respuesta=="n")break;Console.WriteLine();
+      if(respuesta=="n")break;Console.WriteLine();//no continuar
     }while(true);
-    juegos[i]=total;dif[i]=(21-juegos[i]);
+    juegos[i]=total;dif[i]=(21-juegos[i]);//total/diferencia
     }
-    for(int i=0;dif.Length>i;i++)
-    {
-      if(cont>=dif[i]){cont=dif[i];win=(i+1);}
-    }
-    if(win==-1){Console.WriteLine("Gana la casa");}
-    else{Console.WriteLine("Gana el jugador "+win);}
+    for(int i=0;dif.Length>i;i++){if(cont>=dif[i]){cont=dif[i];win=(i+1);}}//calcular menor diferncia 
+    if(win==-1){Console.WriteLine("Gana la casa");}//todos pierden
+    else{Console.WriteLine("Gana el jugador "+win);}//ganador
     Console.WriteLine("FIN");
