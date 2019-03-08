@@ -1,44 +1,21 @@
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		string respuesta = "s", Nmayor="NA", Nmenor="NA";
-		double contador = 0;
-		double total = 0;
-		int mayor = 0;
-		int menor = 100;
+string respuesta = "s", Nmayor="NA", Nmenor="NA";
+		double contador = 0, total = 0;
+		int mayor = 0, menor = 100;
 		
 		while (respuesta == "s")
 		{
-		
-			Console.WriteLine("ingrese nombre");
-			string nombre = Console.ReadLine();
-			
-			Console.WriteLine("ingrese edad");
-			int edad = int.Parse(Console.ReadLine());
-			
-			if (edad > mayor) 
-			{
-				mayor = edad;
-				Nmayor = nombre;
-			}
-			if (edad < menor)
-			{
-				menor = edad;
-				Nmenor = nombre;
-			}
+			Console.WriteLine("ingrese nombre");//nombre
+			string nombre = Console.ReadLine();//se guarda nombre
+			Console.WriteLine("ingrese edad");//edad
+			int edad = int.Parse(Console.ReadLine());//se guarda edad
+			if (edad > mayor) {mayor = edad;Nmayor = nombre;}//edad del mayor
+			if (edad < menor){menor = edad;Nmenor = nombre;}//edad del menor
 			total += edad;
 			contador +=1;
-			
 			Console.WriteLine("Desea continuar?");
 			respuesta = Console.ReadLine();
-			
 		}
-		Double promedio = total / contador;
+		double promedio = total / contador;
 		Console.WriteLine("Promedio " + promedio);
 		Console.WriteLine("El nombre del mayor es " + Nmayor + " y su edad es de " + mayor);   
 		Console.WriteLine("El nombre del menor es " + Nmenor + " y su edad es de " + menor);  
-	}
-}
