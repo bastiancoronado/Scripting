@@ -1,0 +1,59 @@
+    Random aleatorio = new Random();
+    Console.Write("Cuantos jugadores?");
+    int jugadores = int.Parse(Console.ReadLine());
+    int[] resultados = new int[jugadores];
+    string[] nombres = new string[jugadores];
+    for(int i=0;i<resultados.Length;i++)
+    {
+      Console.Write("Nombre del jugador "+(i+1));
+      nombres[i]=Console.ReadLine();
+    }
+    for(int i =0;i<resultados.Length;i++)
+    {
+      Console.WriteLine();Console.WriteLine("Jugador "+(i+1));
+      int carta = aleatorio.Next(1,11);
+      Console.WriteLine("Carta1: "+carta);
+      int total=carta;
+      do
+      {
+        string respuesta="na";
+        carta=aleatorio.Next(1,11);total+=carta;
+        Console. WriteLine("+carta "+carta+"| total= "+total);
+        if(total==21)
+        {
+          Console.WriteLine("BLACKJACK");break;
+        }
+        if(total>21)
+        {
+          Console.WriteLine("Pierdes");total=0;break;
+        }
+        Console.WriteLine("Continuar?(s/n)");
+        respuesta = Console.ReadLine();
+        while(respuesta!="s"&&respuesta!="n")
+        {
+          Console.WriteLine("RESPUESTA IVALIDA(s/n)");
+          respuesta=Console.ReadLine();
+          if(respuesta=="s"||respuesta=="n")break;
+        }
+        if(respuesta=="n")break;
+        
+      }while(true);
+      resultados[i]=total;
+    }
+    for(int j=0;j<resultados.Length;j++)
+    {
+      for(int i=0;i<resultados.Length-1;i++)
+      {
+        if(resultados[i+1]>resultados[i])
+        {
+          int cambio= resultados[i];resultados[i]=resultados[i+1];resultados[i+1]=cambio;
+          string non = nombres[i];nombres[i]=nombres[i+1];nombres[i+1]=non;
+        }
+      }
+    }
+    for(int i=0;i<resultados.Length;i++)
+    {
+      Console.WriteLine("Jugador "+nombres[i]+" con un total de "+resultados[i]);
+    }
+    Console.WriteLine("Gana el jugador "+nombres[0]);
+    Console.WriteLine("FIN");
