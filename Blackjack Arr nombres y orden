@@ -1,5 +1,5 @@
             Random ram = new Random();
-            int carta1 = 0, win = -1, cont = 21;
+            int carta1 = 0, cont = 21;
             string respuesta = "s";
             Console.WriteLine("Elija cuantos jugadores");
             int jugadores = int.Parse(Console.ReadLine());
@@ -61,6 +61,6 @@
             {
                 Console.WriteLine("Lugar" + (i+1) + " es " + nombres[i] + " con puntaje de " + juegos[i]);
             }
-            for (int i = 0; dif.Length > i; i++) { if (cont >= dif[i]) { cont = dif[i]; win = i; } }//calcular menor diferncia
+            for (int i = 0; dif.Length > i; i++) { if (cont >= dif[i]) { cont = dif[i]; } }//calcular menor diferncia
             Console.WriteLine("gana el jugador "+nombres[0]+juegos[0]);
             Console.WriteLine("FIN");
