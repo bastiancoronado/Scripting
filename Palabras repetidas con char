@@ -1,0 +1,31 @@
+            Console.WriteLine("Ingrese una frase");
+            string frase = Console.ReadLine().ToUpper();
+            Console.WriteLine("Ingrese una frase para encontrar en la palabra ");
+            string palabra = Console.ReadLine().ToUpper();
+            int espace = 1;
+            for (int i = 0; i < frase.Length;i++)//contador para espacions de palabxfrase
+            {
+                char letra = frase[i];
+                if (letra == ' ') espace++;
+            }
+            Console.WriteLine(espace);
+            string[] frasexpalabra = new string[espace];int cont = 0;
+            for (int i = 0; i < frase.Length; i++)//escribir arr de frasexpalabra
+            {
+                char letra = frase[i];
+                if (letra == ' ')
+                {
+                    cont++;   
+                }
+                if(letra!=' ')frasexpalabra[cont] += letra;
+            }
+            int repet = 0;
+            for (int i=0;i<frasexpalabra.Length;i++)//comparar palabra con frase, contar repetidas
+            {
+                if(frasexpalabra[i]==palabra)
+                {
+                    repet++;
+                    Console.WriteLine(palabra+" esta en la palabra numero "+(i+1));
+                }
+            }
+            Console.WriteLine("y se repite " + repet + " Veces");
