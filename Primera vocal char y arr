@@ -1,0 +1,20 @@
+    string[] nombres={"Aurelia","Lopz","Andrea","Ofelia","Elkin","Bastian","Daniel"};
+    string [] salida=new string[0];
+    int n = 0;
+    for (int i=0;i<nombres.Length;i++)//cuneta cuantos nombres de la cadena empiezan por una vocal
+    {
+      string palabra = nombres[i];
+      if (palabra[0] =='A'|| palabra[0] == 'E'|| palabra[0] == 'I'|| palabra[0] == 'O'|| palabra[0] == 'U')n++;
+    }
+    salida = new string[n];
+    int cont = 0;
+    for (int i = 0; i < nombres.Length; i++)//asigna los nombres que empiezan por vocal a un arreglo salida
+    {
+      string palabra = nombres[i];
+      if (palabra[0] == 'A' || palabra[0] == 'E' || palabra[0] == 'I' || palabra[0] == 'O' || palabra[0] == 'U')
+      {
+        salida[cont] = palabra;
+        cont++;
+      }
+    }
+    for(int i=0;i<salida.Length;i++){Console.WriteLine(salida[i]);}
