@@ -1,0 +1,29 @@
+    string[] nombres={"Aurelia","Lopz","Andrea","Ofelia","Elkin","Bastian","Daniel"};
+    string [] salida=new string[0];
+    int n = 0;
+    for (int i=0;i<nombres.Length;i++)//cuantas palabras del arreglo tienen el char A o a
+    {
+        string palabra = nombres[i];
+        for (int j = 0; j < palabra.Length; j++)
+        {
+            char letra = palabra[j];
+            if (letra =='A'||letra=='a')n++;break;
+        }
+    }
+    Console.WriteLine(n);
+    salida = new string[n];
+    int cont = 0;
+    for (int i = 0; i < nombres.Length; i++)//asigana las palabras encontradas a un arreglo de salida
+    {
+        string palabra = nombres[i];
+        for (int j = 0; j < palabra.Length; j++)
+        {
+            char letra = palabra[j];
+            if (letra == 'A'||letra=='a')
+            {
+              salida[cont] = palabra;
+              cont++;break;
+            }
+        }
+    }
+    for(int i=0;i<salida.Length;i++)Console.WriteLine(salida[i]);
