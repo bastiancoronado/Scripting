@@ -1,0 +1,42 @@
+        int n = 5;
+        int m = 5;
+        string[,] salida = new string[n, m];
+        
+        for(int i=0;i<salida.GetLength(0);i++)//creacion de la matriz con guiones
+        {
+            for(int j = 0; j < salida.GetLength(1); j++)
+            {
+                salida[i, j] = "-";
+            }
+        }
+        do
+        {
+        Console.WriteLine("\nSALIDA: ");
+        for (int i = 0; i < salida.GetLength(0); i++)//inprimir matriz
+        {
+            for (int j = 0; j < salida.GetLength(1); j++)
+            {
+                Console.Write("|" + salida[i, j]);
+            }
+            Console.Write("|\n");
+        }
+        Console.Write("\n");
+        Console.WriteLine("Agregar?(s/n)");
+        string respuesta =Console.ReadLine();
+        if(respuesta!="s")break;
+        Console.WriteLine("Escrir coordenada de la fila");
+        int x=int.Parse(Console.ReadLine());
+        Console.WriteLine("Escrir coordenada de la columna");
+        int y=int.Parse(Console.ReadLine());
+        while(salida[x,y]=="X")//validacion
+        {
+            Console.WriteLine("COORDENADA OCUPADA! intente en otro espacio");
+            Console.WriteLine("Escrir coordenada de la fila");
+            x=int.Parse(Console.ReadLine());
+            Console.WriteLine("Escrir coordenada de la columna");
+            y=int.Parse(Console.ReadLine());
+            if(salida[x,y]!="X")break;
+        }
+        salida[x,y]="X";
+        }while(true);
+        Console.Write("FIN");
