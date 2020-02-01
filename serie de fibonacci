@@ -1,0 +1,23 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) {
+      
+    short a=0,b=1,serie_n=0,suma=0,cont=3;
+    Console.WriteLine("Ingrese el numero de la serie n");
+    serie_n=short.Parse(Console.ReadLine());
+    Console.Write("0,1");
+
+    while(cont<=serie_n)
+    {
+      suma=(short)(a+b);
+      a=b;
+      b=suma;
+      cont++;
+      Console.Write(","+suma);
+    }
+    Console.WriteLine();
+    Console.WriteLine("El resultado de la serie es "+suma);      
+
+  }
+}
